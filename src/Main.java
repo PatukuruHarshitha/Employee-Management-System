@@ -16,11 +16,32 @@ public class Main {
             System.out.print("Enter your choice: ");
 
             int choice = scanner.nextInt();
+            scanner.nextLine();
 
             switch (choice) {
 
                 case 1:
-                    System.out.println("Add Employee selected.");
+                    System.out.print("Enter Employee ID: ");
+                    int id = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.print("Enter Employee Name: ");
+                    String name = scanner.nextLine();
+
+                    System.out.print("Enter Department: ");
+                    String department = scanner.nextLine();
+
+                    System.out.print("Enter Salary: ");
+                    double salary = scanner.nextDouble();
+
+                    Employee employee = new Employee(
+                            id,
+                            name,
+                            department,
+                            salary
+                    );
+
+                    service.addEmployee(employee);
                     break;
 
                 case 2:
