@@ -16,8 +16,16 @@ public class EmployeeService {
             return;
         }
 
+        System.out.println("\n===== Employee Details =====");
+
         for (Employee employee : employees) {
-            System.out.println(employee);
+            System.out.println("----------------------------");
+            System.out.println("ID         : " + employee.getId());
+            System.out.println("Name       : " + employee.getName());
+            System.out.println("Department : " + employee.getDepartment());
+            System.out.println("Salary     : " + employee.getSalary());
         }
+
+        System.out.println("----------------------------");
     }
 }
