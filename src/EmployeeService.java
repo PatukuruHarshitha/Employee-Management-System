@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,5 +28,17 @@ public class EmployeeService {
         }
 
         System.out.println("----------------------------");
+    }
+
+    public void searchEmployee(int id) {
+        for (Employee employee : employees) {
+            if (employee.getId() == id) {
+                System.out.println("Employee Found!");
+                System.out.println(employee);
+                return;
+            }
+        }
+
+        System.out.println("Employee not found.");
     }
 }
