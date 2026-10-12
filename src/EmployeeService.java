@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class EmployeeService {
 
@@ -35,6 +36,34 @@ public class EmployeeService {
             if (employee.getId() == id) {
                 System.out.println("Employee Found!");
                 System.out.println(employee);
+                return;
+            }
+        }
+
+        System.out.println("Employee not found.");
+    }
+
+    public void updateEmployee(int id, Scanner scanner) {
+        for (Employee employee : employees) {
+            if (employee.getId() == id) {
+
+                System.out.print("Enter new name: ");
+                String name = scanner.nextLine();
+
+                System.out.print("Enter new department: ");
+                String department = scanner.nextLine();
+
+                System.out.print("Enter new salary: ");
+                double salary = scanner.nextDouble();
+                scanner.nextLine();
+
+                Employee updatedEmployee =
+                        new Employee(id, name, department, salary);
+
+                int index = employees.indexOf(employee);
+                employees.set(index, updatedEmployee);
+
+                System.out.println("Employee updated successfully.");
                 return;
             }
         }
