@@ -1,41 +1,77 @@
-switch (choice) {
 
-    case 1:
-        System.out.print("Enter Employee ID: ");
-        int id = scanner.nextInt();
-        scanner.nextLine();
+import java.util.Scanner;
 
-        System.out.print("Enter Employee Name: ");
-        String name = scanner.nextLine();
+public class Main {
 
-        System.out.print("Enter Department: ");
-        String department = scanner.nextLine();
+    public static void main(String[] args) {
 
-        System.out.print("Enter Salary: ");
-        double salary = scanner.nextDouble();
+        EmployeeService service = new EmployeeService();
+        Scanner scanner = new Scanner(System.in);
 
-        Employee employee = new Employee(
-                id, name, department, salary
-        );
+        while (true) {
 
-        service.addEmployee(employee);
-        break;
+            System.out.println("\n===== Employee Management System =====");
+            System.out.println("1. Add Employee");
+            System.out.println("2. View Employees");
+            System.out.println("3. Search Employee");
+            System.out.println("4. Update Employee");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice: ");
 
-    case 2:
-        service.viewEmployees();
-        break;
+            int choice = scanner.nextInt();
+            scanner.nextLine();
 
-    case 3:
-        System.out.print("Enter Employee ID to search: ");
-        int searchId = scanner.nextInt();
-        service.searchEmployee(searchId);
-        break;
+            switch (choice) {
 
-    case 4:
-        System.out.println("Thank you for using the system.");
-        scanner.close();
-        return;
+                case 1:
+                    System.out.print("Enter Employee ID: ");
+                    int id = scanner.nextInt();
+                    scanner.nextLine();
 
-    default:
-        System.out.println("Invalid choice. Please try again.");
+                    System.out.print("Enter Employee Name: ");
+                    String name = scanner.nextLine();
+
+                    System.out.print("Enter Department: ");
+                    String department = scanner.nextLine();
+
+                    System.out.print("Enter Salary: ");
+                    double salary = scanner.nextDouble();
+                    scanner.nextLine();
+
+                    Employee employee =
+                            new Employee(id, name, department, salary);
+
+                    service.addEmployee(employee);
+                    break;
+
+                case 2:
+                    service.viewEmployees();
+                    break;
+
+                case 3:
+                    System.out.print("Enter Employee ID to search: ");
+                    int searchId = scanner.nextInt();
+                    scanner.nextLine();
+
+                    service.searchEmployee(searchId);
+                    break;
+
+                case 4:
+                    System.out.print("Enter Employee ID to update: ");
+                    int updateId = scanner.nextInt();
+                    scanner.nextLine();
+
+                    service.updateEmployee(updateId, scanner);
+                    break;
+
+                case 5:
+                    System.out.println("Thank you for using the system.");
+                    scanner.close();
+                    return;
+
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
+    }
 }
