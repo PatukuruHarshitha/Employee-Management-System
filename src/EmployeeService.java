@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeService {
-    
+
     private List<Employee> employees = new ArrayList<>();
 
     public void addEmployee(Employee employee) {
@@ -46,7 +46,6 @@ public class EmployeeService {
     public void updateEmployee(int id, Scanner scanner) {
         for (Employee employee : employees) {
             if (employee.getId() == id) {
-
                 System.out.print("Enter new name: ");
                 String name = scanner.nextLine();
 
@@ -64,6 +63,18 @@ public class EmployeeService {
                 employees.set(index, updatedEmployee);
 
                 System.out.println("Employee updated successfully.");
+                return;
+            }
+        }
+
+        System.out.println("Employee not found.");
+    }
+
+    public void deleteEmployee(int id) {
+        for (Employee employee : employees) {
+            if (employee.getId() == id) {
+                employees.remove(employee);
+                System.out.println("Employee deleted successfully.");
                 return;
             }
         }
