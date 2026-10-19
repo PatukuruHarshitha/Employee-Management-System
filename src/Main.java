@@ -2,27 +2,24 @@
 import java.util.Scanner;
 
 public class Main {
-
     public static void main(String[] args) {
-
         EmployeeService service = new EmployeeService();
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-
             System.out.println("\n===== Employee Management System =====");
             System.out.println("1. Add Employee");
             System.out.println("2. View Employees");
             System.out.println("3. Search Employee");
             System.out.println("4. Update Employee");
-            System.out.println("5. Exit");
+            System.out.println("5. Delete Employee");
+            System.out.println("6. Exit");
             System.out.print("Enter your choice: ");
 
             int choice = scanner.nextInt();
             scanner.nextLine();
 
             switch (choice) {
-
                 case 1:
                     System.out.print("Enter Employee ID: ");
                     int id = scanner.nextInt();
@@ -40,7 +37,6 @@ public class Main {
 
                     Employee employee =
                             new Employee(id, name, department, salary);
-
                     service.addEmployee(employee);
                     break;
 
@@ -52,7 +48,6 @@ public class Main {
                     System.out.print("Enter Employee ID to search: ");
                     int searchId = scanner.nextInt();
                     scanner.nextLine();
-
                     service.searchEmployee(searchId);
                     break;
 
@@ -60,11 +55,17 @@ public class Main {
                     System.out.print("Enter Employee ID to update: ");
                     int updateId = scanner.nextInt();
                     scanner.nextLine();
-
                     service.updateEmployee(updateId, scanner);
                     break;
 
                 case 5:
+                    System.out.print("Enter Employee ID to delete: ");
+                    int deleteId = scanner.nextInt();
+                    scanner.nextLine();
+                    service.deleteEmployee(deleteId);
+                    break;
+
+                case 6:
                     System.out.println("Thank you for using the system.");
                     scanner.close();
                     return;
