@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class Main {
@@ -16,7 +15,8 @@ public class Main {
             System.out.println("3. Search Employee");
             System.out.println("4. Update Employee");
             System.out.println("5. Delete Employee");
-            System.out.println("6. Exit");
+            System.out.println("6. Salary Report");
+            System.out.println("7. Exit");
             System.out.print("Enter your choice: ");
 
             if (!scanner.hasNextInt()) {
@@ -115,14 +115,17 @@ public class Main {
                     break;
 
                 case 6:
+                    service.salaryReport();
+                    break;
+
+                case 7:
                     System.out.println("Thank you for using the system.");
                     scanner.close();
                     return;
 
                 default:
-                    System.out.println("Invalid choice! Please choose 1 to 6.");
+                    System.out.println("Invalid choice! Please choose 1 to 7.");
             }
         }
     }
 }
-
